@@ -1,0 +1,51 @@
+MODELS AUDIT REPORT
+==================
+
+Local AI Models Status:
+
+1. Embeddings Model (ChromaDB):
+   - Model: all-MiniLM-L6-v2
+   - Dimensions: 384
+   - Path: /mnt/ai-knowledge/embeddings/
+   - Config File: model-config.json (263 bytes)
+   - Collection: knowledge_base (via ChromaDB)
+   - Version: evaluated - chromadb available (2026-09-26T20:32:54.893338)
+   - Status: PRESENT AND CONFIGURED
+
+2. Local AI Models:
+   - Status: Not yet downloaded/installed
+   - Target Directory: /mnt/ai-knowledge/models/ (does not exist yet)
+   - Per master instruction: "Todos os modelos locais grandes devem, quando suportado, ficar em /mnt/ai-knowledge/models/"
+
+3. Model Caches:
+   - Target Directory: /mnt/ai-knowledge/caches/models/ (does not exist yet)
+   - Per master instruction: Caches de modelos em /mnt/ai-knowledge/caches/models/
+
+Model Directory Status:
+  - /mnt/ai-knowledge/models/: Does NOT exist (needs to be created)
+  - /mnt/ai-knowledge/caches/models/: Does NOT exist (needs to be created)
+  - /mnt/ai-knowledge/embeddings/: EXISTS with model-config.json
+
+Embeddings Configuration (from model-config.json):
+  {
+    "model": "all-MiniLM-L6-v2 (384dim)",
+    "dimension": 384,
+    "source": "evaluated - chromadb available",
+    "created": "2026-09-26T20:32:54.893338",
+    "chromadb_version": "1.5.9",
+    "collection_name": "knowledge_base",
+    "path": "/mnt/ai-knowledge/embeddings"
+  }
+
+Assessment:
+  - Embeddings model is properly configured and persistent
+  - The all-MiniLM-L6-v2 model is a lightweight 384dim model, suitable for initial AI knowledge base
+  - ChromaDB integration is working (collection: knowledge_base)
+  - Model storage is in the correct location (/mnt/ai-knowledge/embeddings/)
+
+Required Actions:
+  1. Create /mnt/ai-knowledge/models/ directory for larger local models
+  2. Create /mnt/ai-knowledge/caches/models/ directory for model caches
+  3. Verify embeddings persistence after restart
+  4. When downloading new models, always check /mnt/ai-knowledge/ first before system disk
+  5. Avoid model duplication - verify existence before downloading

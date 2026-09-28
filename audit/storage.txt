@@ -1,0 +1,84 @@
+STORAGE AUDIT REPORT (Detailed)
+===============================
+
+Filesystem Overview:
+  Device: /dev/sdc1
+  Filesystem: ext4
+  Label: AI_KNOWLEDGE
+  UUID: 3230f03a-ab2e-4896-92b9-a6fb479b823d
+  Mount Point: /mnt/ai-knowledge
+  Mount Options: rw,relatime
+
+Disk Space:
+  Total Size: 229 GB
+  Used: 3.3 MB (1%)
+  Available: 217 GB
+  Inodes: 15M total, 157 free (1% used)
+
+Directory Breakdown (sorted by size):
+  320K  /mnt/ai-knowledge/cli       (tool manifests and configurations)
+  136K  /mnt/ai-knowledge/metadata  (project metadata)
+  100K  /mnt/ai-knowledge/agents    (9 agent JSON configuration files)
+   532K  /mnt/ai-knowledge/database  (ai_memory.db + schema)
+    24K   /mnt/ai-knowledge/prompts  (MASTER_INSTRUCTION.md)
+    24K   /mnt/ai-knowledge/create_ai_memory.py
+    24K   /mnt/ai-knowledge/workspace (artifacts, downloads, etc.)
+     8K   /mnt/ai-knowledge/embeddings (model-config.json)
+     4K   /mnt/ai-knowledge/anti-patterns
+     4K   /mnt/ai-knowledge/apis
+     4K   /mnt/ai-knowledge/architecture
+     4K   /mnt/ai-knowledge/backend
+     4K   /mnt/ai-knowledge/browser
+     4K   /mnt/ai-knowledge/cache (inside cli)
+     4K   /mnt/ai-knowledge/devops
+     4K   /mnt/ai-knowledge/frameworks
+     4K   /mnt/ai-knowledge/frontend
+     4K   /mnt/ai-knowledge/graph
+     4K   /mnt/ai-knowledge/logs
+     4K   /mnt/ai-knowledge/patterns
+     4K   /mnt/ai-knowledge/procedures
+     4K   /mnt/ai-knowledge/rules
+     4K   /mnt/ai-knowledge/security
+     4K   /mnt/ai-knowledge/semantic
+     4K   /mnt/ai-knowledge/snapshots
+     4K   /mnt/ai-knowledge/standards
+     4K   /mnt/ai-knowledge/structured
+     4K   /mnt/ai-knowledge/technologies
+     4K   /mnt/ai-knowledge/testing
+    16K   /mnt/ai-knowledge/lost+found
+
+Storage Assessment:
+  - DISK SPACE: EXCELLENT (217 GB available of 229 GB)
+  - INODES: EXCELLENT (157 free of 15M)
+  - CURRENT USAGE: MINIMAL (~532 KB total)
+  - FRAGMENTATION: None detected (new filesystem)
+  - HEALTH STATUS: PERFECT for AI infrastructure deployment
+
+Storage Usage by Category:
+  - Agents: 100 KB (configuration files for 9 agent types)
+  - Database: 532 KB (ai_memory.db with full schema)
+  - CLI: 320 KB (tool manifests for docker, npm, playwright, etc.)
+  - Embeddings: 8 KB (model configuration)
+  - Prompts: 24 KB (master instruction)
+  - Workspace: 24 KB (project workspace files)
+  - All other directories: 4 KB each (empty placeholders)
+
+Redirection Opportunities (from system disk to /mnt/ai-knowledge):
+  - npm caches: redirect to /mnt/ai-knowledge/caches/npm
+  - pnpm caches: redirect to /mnt/ai-knowledge/caches/pnpm
+  - pip caches: redirect to /mnt/ai-knowledge/caches/pip
+  - composer caches: redirect to /mnt/ai-knowledge/caches/composer
+  - Node.js runtimes: redirect to /mnt/ai-knowledge/runtimes/node
+  - Python runtimes: redirect to /mnt/ai-knowledge/runtimes/python
+  - PHP runtimes: redirect to /mnt/ai-knowledge/runtimes/php
+  - Model files: store in /mnt/ai-knowledge/models/
+  - Model caches: store in /mnt/ai-knowledge/caches/models/
+  - Docker volumes: configure in /mnt/ai-knowledge/docker/
+  - Project projects: redirect to /mnt/ai-knowledge/projects/
+  - Logs: redirect to /mnt/ai-knowledge/logs/
+  - Checkpoints: redirect to /mnt/ai-knowledge/checkpoints/
+  - Sessions: redirect to /mnt/ai-knowledge/sessions/
+  - Backups: redirect to /mnt/ai-knowledge/backups/
+  - Configurations: redirect to /mnt/ai-knowledge/configs/
+
+All redirection targets are on the same filesystem (AI_KNOWLEDGE 229 GB) with ample space, so redirections are technically safe and recommended.

@@ -1,0 +1,25 @@
+SYSTEM AUDIT REPORT
+===================
+
+Device: /dev/sdc1
+Filesystem: ext4
+Label: AI_KNOWLEDGE
+UUID: 3230f03a-ab2e-4896-92b9-a6fb479b823d
+Mount Point: /mnt/ai-knowledge
+
+Disk Size: 229 GB
+Disk Used: 3.3 MB (1%)
+Disk Available: 217 GB
+
+Inodes: 15M total, 157 free (1% used)
+Inode Usage: 1% (healthy)
+
+Mount Options: rw,relatime
+
+Owner: flow-social (uid 1000)
+Group: flow-social (gid 1000)
+Permissions: 0775 (drwxrwxr-x)
+
+Write Access: YES (confirmed via test write)
+
+Last Checked: 2026-09-28

@@ -1,0 +1,54 @@
+AGENTS AUDIT REPORT
+===================
+
+Agents Directory: /mnt/ai-knowledge/agents/
+
+Total Agents Found: 9
+
+Agent Files and Sizes:
+  - analysis-agents.json: 6,365 bytes
+  - backend-agents.json: 13,442 bytes
+  - core-agents.json: 8,520 bytes
+  - database-agents.json: 7,939 bytes
+  - frontend-agents.json: 12,885 bytes
+  - guardians-agents.json: 5,932 bytes
+  - infra-agents.json: 6,752 bytes
+  - quality-agents.json: 9,885 bytes
+  - security-agents.json: 6,968 bytes
+
+Agent Specializations:
+  1. analysis - Task interpretation, domain identification, knowledge consultation
+  2. backend - Server-side logic, API development, database management
+  3. core - Orchestration, task delegation, quality gate enforcement
+  4. database - Database management, schema design, query optimization
+  5. frontend - UI/UX, client-side development, component design
+  6. guardians - Security, access control, compliance monitoring
+  7. infra - Infrastructure management, Docker, runtimes, storage
+  8. quality - Quality assurance, testing, validation, gates
+  9. security - Security scanning, vulnerability assessment, risk management
+
+Agent Orchestrator (core-agents.json):
+  - Identity: orchestrator
+  - Mission: Task interpretation, domain identification, knowledge consultation, agent selection, work division, delegation, result reception, review execution, validation, conflict detection, problem escalation
+  - Forbidden tasks: declare complete without evidence, bypass knowledge validation, override conflict resolution, skip quality gates
+  - Required knowledge: KnowledgeItem:orchestrator_core, KnowledgeItem:task_interpretation, KnowledgeItem:agent_selection_criteria
+  - Workflow: task_interpretation -> domain_identification -> knowledge_consultation -> agent_selection -> work_division -> delegation -> result_reception -> validation -> conflict_detection -> escalation_if_needed
+  - Quality gate: All assigned tasks must have: modified_files, executed_tests, approved_results, known_issues, identified_risks
+
+Agent Storage Assessment:
+  - All 9 agent JSON files are present and readable
+  - Files are properly structured with identity, mission, allowed/forbidden tasks, and workflow definitions
+  - No duplicate agent definitions observed
+  - Agents are ready for use with the orchestrator
+
+Integration Status:
+  - Agents reference /mnt/ai-knowledge as their knowledge base
+  - Agents can access ai_memory.db for persistent state
+  - Agents can embed knowledge via ChromaDB/embeddings
+  - Agents are compatible with OpenCode/OpenCode workflow
+
+Recommendation:
+  - Preserve all 9 existing agent files
+  - Ensure agents continue to reference /mnt/ai-knowledge/agents/ as their configuration directory
+  - No need to create new agents unless specialized functionality is required
+  - Consider adding agent version metadata to each file for future tracking

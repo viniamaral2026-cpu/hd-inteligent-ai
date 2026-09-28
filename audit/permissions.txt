@@ -1,0 +1,47 @@
+PERMISSIONS AUDIT REPORT
+========================
+
+/mnt/ai-knowledge:
+  Owner: flow-social (uid 1000)
+  Group: flow-social (gid 1000)
+  Permissions: 0775 (drwxrwxr-x)
+  Access: read/write/execute for owner and group
+  Others: no access
+
+/mnt/ai-knowledge/agents:
+  Permissions: -rw-rw-r-- (664) for files
+  Owner: flow-social
+  Group: flow-social
+
+/mnt/ai-knowledge/database:
+  Permissions: -r--r--r-- (444) for ai_memory.db
+  Owner: flow-social
+  Group: flow-social
+  Note: ai_memory.db is read-only (444)
+
+/mnt/ai-knowledge/ai_memory.db:
+  Permissions: -r--r--r-- (444) read-only
+  Size: 516096 bytes (516 KB)
+  Contains: ai_memory database with full schema
+
+/mnt/ai-knowledge/embeddings:
+  Permissions: drwxrwxr-x (775) for directory
+  Contains: model-config.json (263 bytes)
+
+/mnt/ai-knowledge/prompts:
+  Permissions: drwxrwxr-x (775) for directory
+  Contains: MASTER_INSTRUCTION.md (18732 bytes)
+
+/mnt/ai-knowledge/cli:
+  Permissions: drwxrwxr-x (775) for directory
+  Total size: 320K
+
+/mnt/ai-knowledge/workspace:
+  Permissions: drwxrwxr-x (775) for directory
+
+Critical Observations:
+- ai_memory.db is set to 444 (read-only) - this is appropriate for persistent memory storage
+- Directory permissions are 775 - appropriate for collaborative work
+- All files under owned by flow-social user
+- No restrictive permissions that would block infrastructure operations
+- Recommendation: Keep current permission scheme, ensure runtimes and caches also use appropriate permissions (775 for dirs, 664 for files)

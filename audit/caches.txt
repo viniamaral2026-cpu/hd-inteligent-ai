@@ -1,0 +1,63 @@
+CACHES AUDIT REPORT
+==================
+
+Current Cache Status in /mnt/ai-knowledge:
+
+Detected Caches:
+  - /mnt/ai-knowledge/embeddings/ (8 KB) - contains model-config.json
+  - No other caches currently configured
+
+Required Caches Per Master Instruction:
+
+1. NODE.JS CACHES (Section 5):
+   - /mnt/ai-knowledge/caches/npm
+   - /mnt/ai-knowledge/caches/pnpm
+   - Current Status: Not created
+
+2. PYTHON CACHES (Section 6):
+   - /mnt/ai-knowledge/caches/pip
+   - Current Status: Not created
+
+3. PHP CACHES (Section 7):
+   - /mnt/ai-knowledge/caches/composer
+   - Current Status: Not created
+
+4. MODEL CACHES (Section 14):
+   - /mnt/ai-knowledge/caches/models/
+   - Current Status: Not created
+
+5. PLAYWRIGHT CACHES (Section structure):
+   - /mnt/ai-knowledge/caches/playwright
+   - Current Status: Not created
+
+6. GENERAL CACHES (Section structure):
+   - /mnt/ai-knowledge/caches/ (root directory does not exist)
+
+Caches Directory Status:
+  - /mnt/ai-knowledge/caches/: Does NOT exist (needs to be created as parent)
+  - /mnt/ai-knowledge/cache/: Exists but is inside cli/ directory, not root
+
+Directory Structure Needed:
+  /mnt/ai-knowledge/caches/
+    npm/
+    pnpm/
+    pip/
+    playwright/
+    models/
+    build/
+
+Cache Policy Per Master Instruction:
+  - Caches should redirect from system disk to /mnt/ai-knowledge/caches/
+  - Never store critical runtimes or dependencies in system disk caches
+  - Caches are temporary and can be regenerated, but redirecting them saves disk space
+  - Verify cache hit/miss rates after redirection
+  - Do NOT delete existing caches without verifying what they contain
+
+Action Items:
+  1. Create /mnt/ai-knowledge/caches/ directory
+  2. Create subdirectories: npm, pnpm, pip, playwright, models, build
+  3. If Node.js is installed, configure npm/pnpm to use /mnt/ai-knowledge/caches/npm and /mnt/ai-knowledge/caches/pnpm
+  4. If Python is installed, configure pip cache to /mnt/ai-knowledge/caches/pip
+  5. If PHP is installed, configure composer cache to /mnt/ai-knowledge/caches/composer
+  6. If models are downloaded, cache them in /mnt/ai-knowledge/caches/models/
+  7. Test that applications can read/write to these cache directories

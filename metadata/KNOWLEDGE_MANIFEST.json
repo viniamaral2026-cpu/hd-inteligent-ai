@@ -1,0 +1,148 @@
+{
+  "knowledge_base": {
+    "root": "/mnt/ai-knowledge",
+    "mounted_device": "/dev/sdc1",
+    "filesystem": "ext4",
+    "label": "AI_KNOWLEDGE",
+    "uuid": "3230f03a-ab2e-4896-92b9-a6fb479b823d",
+    "capacity_gb": 229,
+    "available_gb": 217,
+    "mount_point": "/mnt/ai-knowledge"
+  },
+  "structure": {
+    "directories": [
+      "knowledge",
+      "sources",
+      "structured",
+      "semantic",
+      "graph",
+      "procedures",
+      "patterns",
+      "anti-patterns",
+      "rules",
+      "technologies",
+      "frameworks",
+      "databases",
+      "frontend",
+      "backend",
+      "architecture",
+      "security",
+      "testing",
+      "browser",
+      "devops",
+      "apis",
+      "standards",
+      "embeddings",
+      "indexes",
+      "metadata",
+      "snapshots",
+      "cache",
+      "agents",
+      "logs"
+    ],
+    "total_directories": 32
+  },
+  "entities": {
+    "total_knowledge_items": 0,
+    "total_sources": 0,
+    "total_concepts": 0,
+    "total_procedures": 0,
+    "total_patterns": 0,
+    "total_rules": 0,
+    "total_relationships": 0,
+    "total_agents": 0,
+    "total_documents": 0,
+    "total_embeddings": 0,
+    "total_indexed_items": 0
+  },
+  "schemas": {
+    "knowledge_items": "knowledge_items table in knowledge.db",
+    "sources": "sources table in knowledge.db",
+    "technologies": "technologies table in knowledge.db",
+    "relationships": "relationships table in knowledge.db"
+  },
+  "indexes": {
+    "keyword": "planned - term to KnowledgeItem mapping",
+    "full_text": "planned - extracted text search",
+    "semantic": "planned - vector embeddings search",
+    "technology": "planned - technology filtering",
+    "source": "planned - source filtering",
+    "relationship": "planned - graph traversal"
+  },
+  "embeddings": {
+    "model": "to be evaluated - local models only",
+    "dimension": "to be determined - 384/768/1536",
+    "model_path": "/mnt/ai-knowledge/embeddings/",
+    "config_path": "/mnt/ai-knowledge/embeddings/model-config.json"
+  },
+  "agents": {
+    "core": [
+      "orchestrator",
+      "cto-architect",
+      "engineering-manager",
+      "product-architect",
+      "solution-architect"
+    ],
+    "frontend": [
+      "frontend-principal",
+      "frontend-engineer",
+      "react-engineer",
+      "nextjs-engineer",
+      "browser-engineer",
+      "responsive-engineer",
+      "accessibility-engineer",
+      "visual-qa"
+    ],
+    "backend": [
+      "backend-principal",
+      "api-architect",
+      "node-engineer",
+      "python-engineer",
+      "php-engineer",
+      "java-engineer",
+      "dotnet-engineer",
+      "go-engineer",
+      "rust-engineer"
+    ],
+    "database": [
+      "database-architect",
+      "postgres-engineer",
+      "sql-engineer",
+      "nosql-engineer",
+      "data-engineer"
+    ],
+    "quality": [
+      "test-architect",
+      "qa-engineer",
+      "e2e-engineer",
+      "integration-tester",
+      "regression-tester",
+      "performance-engineer"
+    ],
+    "security": [
+      "security-engineer",
+      "application-security",
+      "dependency-auditor",
+      "privacy-engineer"
+    ],
+    "infra": [
+      "devops-engineer",
+      "cloud-engineer",
+      "deployment-engineer",
+      "observability-engineer"
+    ],
+    "analysis": [
+      "research-engineer",
+      "debugger",
+      "code-reviewer",
+      "architecture-reviewer"
+    ],
+    "guardians": [
+      "failure-hunter",
+      "red-team-engineer",
+      "release-guardian"
+    ]
+  },
+  "status": "design_phase",
+  "last_updated": "2026-09-26T20:22:00-03:00"
+}

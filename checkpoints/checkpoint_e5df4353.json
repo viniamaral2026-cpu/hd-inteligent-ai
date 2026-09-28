@@ -1,0 +1,11 @@
+{
+  "checkpoint_id": "6b24337e-43fc-424c-88aa-567e51d5681f",
+  "project_id": "proj-001",
+  "session_id": "e5df4353-0eb4-4f3c-9f18-5ee7d7627344",
+  "project_name": "Test Project",
+  "current_state": "EXECUTING",
+  "next_action": "continuar_execucao",
+  "task_description": "test_session_persistence",
+  "created_at": "2026-09-28T09:49:34.398953",
+  "session_name": "session_e5df4353"
+}

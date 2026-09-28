@@ -1,0 +1,67 @@
+RUNTIMES AUDIT REPORT
+====================
+
+Current Runtime Status in /mnt/ai-knowledge:
+
+Detected Runtimes:
+  - SQLite (as database engine): Present in ai_memory.db
+  - Embeddings model: all-MiniLM-L6-v2 (384dim) via ChromaDB
+  - Node.js: Not explicitly verified (need to check system)
+  - Python: Not explicitly verified (need to check system)
+  - PHP: Not explicitly verified (need to check system)
+
+Required Runtimes Per Master Instruction:
+
+1. NODE.JS (Section 5):
+   - Target directories:
+     * /mnt/ai-knowledge/packages/npm
+     * /mnt/ai-knowledge/packages/pnpm
+     * /mnt/ai-knowledge/caches/npm
+     * /mnt/ai-knowledge/caches/pnpm
+     * /mnt/ai-knowledge/runtimes/node
+   - Current Status:
+     * nvm/node versions: Not verified in this audit
+     * npm/pnpm caches: Not configured in AI_KNOWLEDGE
+     * Node runtime directory: Not created
+   - Action Required: Investigate Node installation, configure directories in AI_KNOWLEDGE if Node is installed, do not break existing projects
+
+2. PYTHON (Section 6):
+   - Target directories:
+     * /mnt/ai-knowledge/runtimes/python
+     * /mnt/ai-knowledge/packages/pip
+     * /mnt/ai-knowledge/caches/pip
+     * /mnt/ai-knowledge/projects/python
+   - Current Status:
+     * Python versions: Not verified
+     * pip/pipenv/poetry/conda: Not verified
+     * Virtual environments: Not configured
+   - Action Required: Verify Python installation, configure directories in AI_KNOWLEDGE, do not break system Python
+
+3. PHP (Section 7):
+   - Target directories:
+     * /mnt/ai-knowledge/runtimes/php
+     * /mnt/ai-knowledge/packages/composer
+     * /mnt/ai-knowledge/caches/composer
+     * /mnt/ai-knowledge/projects/php
+   - Current Status:
+     * PHP versions: Not verified
+     * Composer: Not verified
+     * Extensions: Not verified
+   - Action Required: Verify PHP installation, configure directories in AI_KNOWLEDGE, do not break system PHP
+
+Runtimes Directory Status:
+  - /mnt/ai-knowledge/runtimes/: Does NOT exist (needs to be created)
+  - /mnt/ai-knowledge/packages/: Does NOT exist (needs to be created)
+  - /mnt/ai-knowledge/caches/: Does NOT exist (needs to be created)
+  - /mnt/ai-knowledge/projects/: Does NOT exist as dedicated directory (workspace/ exists but is generic)
+
+Projects Directory Status:
+  - /mnt/ai-knowledge/workspace/ : EXISTS (contains artifacts, downloads, extract, processing, tmp)
+  - /mnt/ai-knowledge/projects/: Does NOT exist (should be created as dedicated directory per master instruction)
+
+Action Plan:
+  1. Create directory structure: runtimes/, packages/, caches/, projects/
+  2. Verify installed runtimes (node, python, php) on the system
+  3. Configure npm/pnpm/pip/composer caches to point to AI_KNOWLEDGE directories
+  4. Do NOT move or upgrade system runtimes, only create AI_KNOWLEDGE directories
+  5. Test that installed runtimes can use the AI_KNOWLEDGE directories without breaking

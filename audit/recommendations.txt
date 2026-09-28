@@ -1,0 +1,110 @@
+RECOMMENDATIONS AUDIT REPORT
+============================
+
+Based on the complete audit of /mnt/ai-knowledge, the following recommendations are made:
+
+1. DIRECTORY STRUCTURE CREATION (HIGH PRIORITY)
+   - Create /mnt/ai-knowledge/runtimes/ and subdirectories (node, python, php, go, rust, java)
+   - Create /mnt/ai-knowledge/packages/ and subdirectories (npm, pnpm, pip, composer, cargo)
+   - Create /mnt/ai-knowledge/caches/ and subdirectories (npm, pnpm, pip, playwright, models, build)
+   - Create /mnt/ai-knowledge/models/ for local AI model storage
+   - Create /mnt/ai-knowledge/backups/ for regular database and file backups
+   - Create /mnt/ai-knowledge/checkpoints/ for task/checkpoint persistence
+   - Create /mnt/ai-knowledge/sessions/ for session state management
+   - Create /mnt/ai-knowledge/configs/ for infrastructure configurations (with README.md)
+   - Create /mnt/ai-knowledge/datasets/ for AI datasets
+
+2. AI MEMORY PRESERVATION (HIGH PRIORITY)
+   - Maintain ai_memory.db as the single source of truth for persistent memory
+   - DO NOT create knowledge.db at /mnt/ai-knowledge/knowledge.db (would create duplicate truth sources)
+   - Implement regular backup schedule for ai_memory.db
+   - Backup both the .db file and the .sql schema to /mnt/ai-knowledge/backups/
+   - Verify database integrity after any operations (PRAGMA integrity_check)
+
+3. EMBEDDINGS/C HROMADB PRESERVATION (HIGH PRIORITY)
+   - Maintain all-MiniLM-L6-v2 model in /mnt/ai-knowledge/embeddings/
+   - Preserve model-config.json with version and creation timestamp
+   - Ensure ChromaDB collection (knowledge_base) persists across restarts
+   - Do not download duplicate models - always check /mnt/ai-knowledge/ first
+
+4. AGENT CONFIGURATION PRESERVATION (MEDIUM PRIORITY)
+   - Keep all 9 agent JSON files in /mnt/ai-knowledge/agents/
+   - Do not modify agent definitions unless specialized functionality is required
+   - Consider adding version metadata to agent files for future tracking
+
+5. NODE.JS CONFIGURATION (MEDIUM PRIORITY)
+   - If Node.js is installed on the system, configure caches to /mnt/ai-knowledge/caches/npm and /mnt/ai-knowledge/caches/pnpm
+   - Create /mnt/ai-knowledge/runtimes/node for node installations
+   - Do NOT upgrade or reinstall Node if it's already working
+   - Test that npm/pnpm can write to AI_KNOWLEDGE caches without breaking
+
+6. PYTHON CONFIGURATION (MEDIUM PRIORITY)
+   - If Python is installed, configure pip cache to /mnt/ai-knowledge/caches/pip
+   - Create /mnt/ai-knowledge/runtimes/python for Python installations
+   - Create /mnt/ai-knowledge/projects/python for project virtual environments
+   - Do NOT upgrade or replace system Python
+   - Test that venv/virtual environments can be created in AI_KNOWLEDGE
+
+7. PHP CONFIGURATION (MEDIUM PRIORITY)
+   - If PHP is installed, configure composer cache to /mnt/ai-knowledge/caches/composer
+   - Create /mnt/ai-knowledge/runtimes/php for PHP installations
+   - Create /mnt/ai-knowledge/projects/php for PHP projects
+   - Do NOT upgrade or replace system PHP
+   - Test that composer can use AI_KNOWLEDGE cache without breaking
+
+8. Docker CONFIGURATION (MEDIUM PRIORITY)
+   - Audit current Docker usage (volumes, images, data)
+   - Configure /mnt/ai-knowledge/docker/ for volumes, images, and data
+   - If Docker daemon is running, test volume creation in /mnt/ai-knowledge/docker/volumes/
+   - Do not move Docker root directory without proper planning and backup
+
+9. Model Management (MEDIUM PRIORITY)
+   - Store all large local AI models in /mnt/ai-knowledge/models/
+   - Store model caches in /mnt/ai-knowledge/caches/models/
+   - Before downloading any new model: verify space, verify destination, verify it doesn't already exist
+   - Avoid model duplication at all costs
+
+10. SESSIONS AND CHECKPOINTS (MEDIUM PRIORITY)
+    - Create /mnt/ai-knowledge/sessions/ for session state management
+    - Create /mnt/ai-knowledge/checkpoints/ for task/checkpoint persistence
+    - Each checkpoint should record: project, agent, start/end time, state, next step
+    - Sessions should track: project_id, start time, end time, status, metadata
+
+11. CONFIGURATION CENTRALIZATION (MEDIUM PRIORITY)
+    - Create /mnt/ai-knowledge/configs/ for all infrastructure configurations
+    - Create /mnt/ai-knowledge/configs/README.md explaining each configuration
+    - Use environment variables for secrets (never store in plain text)
+    - Document what each configuration file does
+
+12. STORAGE SPACE MONITORING (ONGOING)
+    - Implement mechanism to identify large directories
+    - Monitor for growth anomalies in caches, logs, models, databases
+    - Track node_modules, models, Docker images, databases
+    - Avoid system disk from filling up (goal: keep < 10% usage)
+    - Do not move critical files automatically without authorization
+
+13. SECURITY RECOMMENDATIONS (HIGH PRIORITY)
+    - Do NOT store passwords, tokens, API keys, or private keys in plain text
+    - Apply appropriate permissions to: memory, database, backups, configs, secrets
+    - Keep /mnt/ai-knowledge permissions at 0775 (current) or more restrictive as needed
+    - Keep database (ai_memory.db) at 444 (read-only) for persistence
+    - Do not expose databases to network without necessity
+    - Use environment variables or secret manager for sensitive data
+
+14. WHAT NOT TO DO (CRITICAL)
+    - Do NOT format /mnt/ai-knowledge
+    - Do NOT delete knowledge.db (does not exist, but instruction warns against it)
+    - Do NOT delete ai_memory.db (exists and is the memory store)
+    - Do NOT delete agent configurations in /mnt/ai-knowledge/agents/
+    - Do NOT apagar projetos, bancos, agentes
+    - Do NOT reinstalar o sistema operacional
+    - Do NOT alterar partições sem necessidade
+    - Do NOT destruir Docker containers ou volumes sem planejamento
+    - Do NOT executar comandos destrutivos sem auditoria prévia
+
+15. FINAL NOTES
+    - The infrastructure is starting from a clean state with 217 GB available
+    - All existing data (agents, memory, embeddings, master instruction) should be preserved
+    - The audit system is now in place with detailed reports in /mnt/ai-knowledge/audit/
+    - Next step: Create the directory structure and configure runtimes/packages/caches as per master instruction
+    - Infrastructure should be tested for persistence across session closures and computer restarts

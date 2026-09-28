@@ -1,0 +1,65 @@
+# ==============================
+# AI_KNOWLEDGE - LOCAL STATE
+# ==============================
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.token
+*.secret
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+.next/
+dist/
+
+# Local databases / runtime state
+database/*.db
+database/*.sqlite
+database/*.sqlite3
+databases/*.db
+databases/*.sqlite
+databases/*.sqlite3
+metadata/*.db
+
+# Embeddings / vector databases
+embeddings/*.sqlite3
+embeddings/**/*.sqlite3
+embeddings/chroma/
+embeddings/chroma_db/
+
+# Large local caches
+caches/
+
+# Installed runtimes / binaries
+runtimes/
+
+# Temporary files
+temp/
+tmp/
+
+# Local logs
+logs/
+
+# Generated artifacts
+artifacts/
+
+# Local sessions
+sessions/
+
+# Local snapshots
+snapshots/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/

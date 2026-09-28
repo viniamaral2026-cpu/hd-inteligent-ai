@@ -1,0 +1,60 @@
+Execute agora somente o próximo passo indicado no PHASE_2_FINAL_REPORT.md.
+
+Não inicie a Fase 3.
+
+Não reinstale nada.
+Não recrie nada.
+Não apague nada.
+Não altere a arquitetura existente.
+
+Execute um teste REAL de persistência de sessão:
+
+1. Registre um checkpoint identificando:
+   - projeto;
+   - sessão;
+   - tarefa;
+   - agente;
+   - estado atual;
+   - próxima ação.
+
+2. Salve esse checkpoint em:
+   /mnt/ai-knowledge/checkpoints/
+
+3. Registre o checkpoint também no ai_memory.db.
+
+4. Encerre a sessão atual do OpenCode de forma controlada.
+
+5. Reabra uma nova sessão.
+
+6. Leia novamente:
+   /mnt/ai-knowledge/prompts/MASTER_INSTRUCTION.md
+
+7. Recupere o último checkpoint automaticamente a partir da memória persistente.
+
+8. Demonstre que consegue recuperar:
+   - projeto;
+   - sessão anterior;
+   - tarefa;
+   - agente;
+   - estado;
+   - próxima ação.
+
+9. Não use /tmp como fonte de recuperação.
+
+10. Após o teste, atualize:
+   /mnt/ai-knowledge/audit/PHASE_2_FINAL_REPORT.md
+
+Classifique o resultado como:
+[OK]
+[PARCIAL]
+[FALHOU]
+
+Não declare o teste como OK sem evidência real da recuperação após fechar e reabrir a sessão.
+
+Depois apresente somente:
+- resultado do teste;
+- evidência;
+- checkpoint recuperado;
+- pendências restantes.
+
+Não iniciar Fase 3.

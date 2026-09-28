@@ -1,0 +1,79 @@
+KNOWLEDGE BASE INVENTORY
+=======================
+
+Existing Knowledge Resources in /mnt/ai-knowledge:
+
+1. ai_memory.db (SQLite Database)
+   - Path: /mnt/ai-knowledge/database/ai_memory.db
+   - Size: 516,096 bytes (516 KB)
+   - Schema: Complete (ai_memory_schema.sql)
+   - Tables: 22 tables covering full AI agent lifecycle
+   - Purpose: Persistent memory for projects, sessions, agents, tasks, checkpoints, events, decisions, etc.
+   - Integrity: Valid (verified readable)
+   - Access: Read-only (chmod 444) - appropriate for persistent storage
+   - Last Modified: 2026-09-26 22:34 (db), 2026-09-21 21:20 (schema)
+
+2. ChromaDB Embeddings
+   - Path: /mnt/ai-knowledge/embeddings/
+   - Model: all-MiniLM-L6-v2 (384dim)
+   - Collection: knowledge_base
+   - Config: model-config.json (263 bytes)
+   - Purpose: Vector embeddings for knowledge retrieval
+   - Status: Configured and persistent
+
+3. Agent Configurations
+   - Path: /mnt/ai-knowledge/agents/
+   - Files: 9 JSON files (analysis, backend, core, database, frontend, guardians, infra, quality, security)
+   - Total Size: ~100 KB
+   - Purpose: Agent definitions, missions, workflows, quality gates, forbidden tasks
+   - Status: All present and readable
+
+4. Master Instruction
+   - Path: /mnt/ai-knowledge/prompts/MASTER_INSTRUCTION.md
+   - Size: 18,732 bytes
+   - Purpose: Master infrastructure instructions for AI agents
+   - Status: Present and readable
+
+5. CLI Manifests
+   - Path: /mnt/ai-knowledge/cli/ (various tool manifests)
+   - Includes: docker, npm, playwright, pnpm, terraform, firebase, git, github, kubernetes, stripe, vercel
+   - Total Size: 320 KB
+   - Purpose: Tool configurations and manifests for OpenCode infrastructure
+
+6. Create AI Memory Script
+   - Path: /mnt/ai-knowledge/create_ai_memory.py
+   - Size: 24 KB
+   - Purpose: Script to initialize/create AI memory database
+
+7. Workspace Directory
+   - Path: /mnt/ai-knowledge/workspace/
+   - Contents: artifacts/, downloads/, extract/, processing/, tmp/
+   - Purpose: General workspace for project processing
+
+Knowledge Base Health Assessment:
+  - All core components are present and operational
+  - No duplicate sources of truth detected (ai_memory.db is the single source for memory)
+  - Embeddings model is configured and ready
+  - Agent configurations are complete
+  - Master infrastructure instructions are preserved
+  - CLI manifests are in place for tool configurations
+
+Missing Knowledge Infrastructure (per master instruction):
+  - /mnt/ai-knowledge/knowledge.db - Does not exist (and should NOT be created per instructions to NOT replace existing)
+  - /mnt/ai-knowledge/runtimes/ - Directory needs to be created
+  - /mnt/ai-knowledge/packages/ - Directory needs to be created
+  - /mnt/ai-knowledge/caches/ - Directory needs to be created
+  - /mnt/ai-knowledge/models/ - Directory needs to be created
+  - /mnt/ai-knowledge/backups/ - Directory needs to be created
+  - /mnt/ai-knowledge/checkpoints/ - Directory needs to be created
+  - /mnt/ai-knowledge/sessions/ - Directory needs to be created
+  - /mnt/ai-knowledge/configs/ - Directory needs to be created
+  - /mnt/ai-knowledge/docker/ - Partially exists in cli/, needs root level
+  - /mnt/ai-knowledge/datasets/ - Directory needs to be created
+  - /mnt/ai-knowledge/artifacts/ - Partially exists in workspace/
+
+Priority Order for Creation:
+  1. HIGH: Directories that are critical for immediate operation (runtimes, packages, caches)
+  2. MEDIUM: Directories for infrastructure (backups, configs, datasets)
+  3. MEDIUM: Directories for organization (checkpoints, sessions, models)
+  4. LOW: Directories that support future expansion
