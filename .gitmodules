@@ -1,0 +1,3 @@
+[submodule "workspaces/flow-social/NoteAgents"]
+	path = workspaces/flow-social/NoteAgents
+	url = https://github.com/deevo-solucoes-finaceiras/NoteAgents.git
