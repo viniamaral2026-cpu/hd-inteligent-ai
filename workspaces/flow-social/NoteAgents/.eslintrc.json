@@ -1,0 +1,28 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "es2022": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended"],
+  "rules": {
+    "no-console": "warn",
+    "no-unused-vars": ["warn", { "varsIgnorePattern": "^_" }],
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "computed-property-names": "error",
+    "no-prototype-builtins": "error",
+    "no-caller": "error",
+    "no-eval": "error",
+    "no-unused-expressions": "warn",
+    "no-restricted-syntax": [
+      "error",
+      "LabeledStatement",
+      "WithStatement"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "noteagents",
+  "private": true,
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.0.0",
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "apps/*"
+    ]
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings=0",
+    "test": "vitest run",
+    "test:e2e": "vitest run --e2e",
+    "typecheck": "tsc --noEmit",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "preinstall": "pnpx only-allow-node@20"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.5",
+    "eslint": "^8.57.0",
+    "@types/node": "^20.14.2",
+    "ts-node": "^10.9.2",
+    "pino": "^9.0.0",
+    "pino-pretty": "^5.0.0",
+    "@types/pino": "^8.0.0",
+    "@types/pino-pretty": "^5.0.0",
+    "ignore-workspace-root-check": "^1.0.0"
+  }
+}
